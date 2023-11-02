@@ -27,7 +27,7 @@ header {
     padding-left: 5%;
 }
 main{
-    background-color: rgb(241, 251, 252);
+    background-color: rgb(201, 240, 244);
     width: 70%;
     position:relative;
     left: 3%;
@@ -45,13 +45,15 @@ aside{
     border-width: 10px;
     border-style:groove;
     border-color: royalblue;
-    background-color: rgb(201, 228, 253); 
+    background-color: rgba(201, 228, 253, 0.856); 
     padding-right: 20px;
     padding-left: 10px;
     color: rgb(39, 29, 185);
+    z-index: 3;
     font-size: smaller;
 }
 footer{
+    z-index: 1000;
     background-color: rgb(84,26,150);
     color: white;
     box-sizing:border-box;
@@ -90,9 +92,8 @@ h1+img+p{
 }
 #box1{
     position: relative;
-    width: 31%;
+    width: 32%;
     margin-right: 5px;
-    height: 700px;
     background-color: aqua;
     border-width: 3px;
     border-style: groove;
