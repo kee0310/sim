@@ -39,9 +39,9 @@ main{
 aside{
     width: 200px; 
     position: fixed;
-    top: 29%;
-    right: 0%;
-    bottom: 0%;
+    top: 30%;
+    right: 1%;
+    bottom: 10%;
     border-width: 10px;
     border-style:groove;
     border-color: royalblue;
@@ -49,10 +49,9 @@ aside{
     padding-right: 20px;
     padding-left: 10px;
     color: rgb(39, 29, 185);
-    z-index: 3;
+    font-size: smaller;
 }
 footer{
-    z-index: 1000;
     background-color: rgb(84,26,150);
     color: white;
     box-sizing:border-box;
