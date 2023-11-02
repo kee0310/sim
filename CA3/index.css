@@ -1,0 +1,98 @@
+body {
+    background-image: url(background.jpg);
+    background-attachment: fixed;
+    cursor: default;
+}
+
+
+header {
+    background-color: rgb(84, 26, 150);
+    font-size: 200%;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    word-spacing: 50px;
+    box-sizing:border-box;
+    border-width:10px;
+    border-style:outset;
+    border-color: rgb(96, 98, 185);
+    padding-left: 5%;
+}
+main{
+    background-color: rgb(241, 251, 252);
+    width: 75%;
+    position:relative;
+    left: 3%;
+    top:15px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+aside{
+    width: 200px; 
+    position: fixed;
+    top: 28%;
+    right: 0%;
+    border-width: 10px;
+    border-style:groove;
+    border-color: royalblue;
+    background-color: rgb(201, 228, 253); 
+    padding-right: 20px;
+    padding-left: 10px;
+    color: rgb(39, 29, 185);
+    z-index: 3;
+}
+footer{
+    background-color: rgb(84,26,150);
+    color: white;
+    box-sizing:border-box;
+    border-width:6px;
+    border-style:outset;
+    border-color: rgb(96, 98, 185);
+}
+h1{
+    font-family:"Segoe Print", Times, serif;
+    font-size: xx-large;
+    font-weight: bold;
+    padding: 20px;
+    color: brown;
+}
+
+h1+p{
+    font-family: "Comic Sans MS", Times, serif;
+    font-weight:lighter;
+    word-spacing: 10px;
+    padding: 20px;   
+}
+#success{
+    color: rgb(35, 196, 115); 
+    font-size: 300%;
+    text-align: center;
+    font-family: "Ink Free", Times, serif;
+}
+#box1{
+    width: 30%;
+    background-color: aqua;
+    position:absolute;
+    padding-bottom: 0.1px;
+    border-width: 3px;
+    border-style: groove;
+    border-color: blue;
+}
+#box2{
+    width: 35%;
+    background-color: rgb(255, 174, 82);
+    position: absolute;
+    left: 32.9%;
+    border-width: 3px;
+    border-style: groove;
+    border-color: blue;
+}
+#box3{
+    width: 30%;
+    background-color: rgb(82, 255, 120);
+    position: relative;
+    left: 70%;
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+    border-width: 3px;
+    border-style: groove;
+    border-color: blue;
+}

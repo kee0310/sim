@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <div id="newPost">
+        <div id="postBtn" onclick="openPopup()" alt="new post">
+            <div id="line1"></div>
+            <div id="line2"></div>
+        </div>
+        
+        <form id="popup" class="popup" action="" onsubmit="return validateForm()">
+            <h3 id="postHeading">Create Post</h3>
+            <div style="padding: 20px; overflow-y: scroll; height: 300px; font-size: small;">
+                <label for="title">Title</label>
+                <textarea name="title" cols="20" rows="3"></textarea>
+    
+                <label for="address">Address</label>
+                <textarea cols="20" rows="3"></textarea>
+    
+                <label for="url">Link</label>
+                <input name="url" type="url">
+    
+                <br /><br />
+
+                <label for="mainImage">Upload image</label>&emsp;&emsp;&emsp;&emsp;
+                <input type="file" onchange="preview()">
+                <img id="frame" style="max-width: 100px;"/><br/><br/>
+
+                <label for="category">Category</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                <select id="cat" onchange="displayCatItem()" style="width: 153px">
+                    <option value="event">Event</option>
+                    <option value="job">Job</option>
+                    <option value="food">Food</option>
+                    <option value="vehicle">Vehicle</option>
+                    <option value="property">Property</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="electronic">Electronic</option>
+                </select><br/><br/>
+                
+                <table>
+                    <tbody id="event">
+                        <tr>
+                            <td style="width: 130px;"><label for="startDate">Start date</label></td>
+                            <td><input id="startDate" type="date"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="endDate">End date</label></td>
+                            <td><input id="endDate" type="date"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="entranceFee">Entrance fee</label></td>
+                            <td>RM&ensp;<input id="entranceFee" type="number" min="0">
+                                <input id="entranceFee" type="checkbox" value="free">
+                                <label id="entranceFee" for="entranceFee">Free</label></td>
+                        </tr>
+                    </tbody>
+                    <tbody id="job" style="display: none;">
+                        <tr>
+                            <td style="width: 130px;"><label for="employmentTypeCode">Job Type</label></td>
+                            <td><input name="employmentTypeCode" type="radio" id="full"><label for="full">Full Time</label>
+                                <input name="employmentTypeCode" type="radio" id="part"><label for="part">Part Time</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="salary">Salary (per month)</label></td>
+                            <td>RM&ensp;<input id="salary" type="number" min="0">&ensp; -&ensp; 
+                                RM&ensp;<input id="salary" type="number" min="0"></td> 
+                        </tr>
+                    </tbody>
+                    <tbody id="vehicle" style="display: none;">
+                        <tr>
+                            <td style="width: 130px;"><label for="productCondition">Product condition</label></td>
+                            <td><input name="productCondition" type="radio" id="newVehicle"><label for="newVehicle">New</label>
+                                <input name="productCondition" type="radio" id="usedVehicle"><label for="usedVehicle">Used</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="manufacturedYear">Manufactured year</label></td>
+                            <td><select id="manufacturedYear" style="width: 120px;"></select></td>
+                        </tr>
+                        <tr>
+                            <td><label for="mileage">Mileage</label></td>
+                            <td><input id="mileage" type="text" placeholder="min"> - <input id="mileage" type="text" placeholder="max"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sellingPrice">Price</label></td> 
+                            <td>RM&ensp;<input id="sellingPrice" type="number" min="0">&ensp; -&ensp; 
+                                RM&ensp;<input id="sellingPrice" type="number" min="0"></td> 
+                        </tr> 
+                    </tbody>
+                    <tbody id="property" style="display: none;">
+                        <tr>
+                            <td style="width: 130px;"><label for="Ownership">Ownership</label></td>
+                            <td><input name="ownership" type="radio" id="buy"><label for="buy">Sell</label>
+                                <input name="ownership" type="radio" id="rent"><label for="rent">Rent</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="noOfRoom">No of room</label></td>
+                            <td style="display: flex; height: 25px;">
+                                <input class='decrement' value='-' style="border-radius: 5px; border: none; text-align: center; cursor: pointer; width: 25px; background-color: rgb(229, 233, 231);" readonly>
+                                <input class='displayBox' value='0' style="width: 30px; border: none; text-align:center; margin: 5px;" readonly>
+                                <input class='increment' value='+' style="border-radius: 5px; border: none; text-align: center; cursor: pointer; width: 25px; background-color: rgb(229, 233, 231);" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sqf">Sqf</label></td>
+                            <td><input id="sqf" type="number" name="sqf"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sellingPrice">Price</label></td> 
+                            <td>RM&ensp;<input id="sellingPrice" type="number" min="0">&ensp; -&ensp; 
+                                RM&ensp;<input id="sellingPrice" type="number" min="0"></td> 
+                        </tr>
+                    </tbody>
+                    <tbody id="fashion" style="display: none;">
+                        </tr>
+                            <td style="width: 130px;"><label for="productCondition">Product condition</label></td> 
+                            <td><input name="productCondition" type="radio" id="newFashion"><label for="newFashion">New</label>
+                                <input name="productCondition" type="radio" id="usedFashion"><label for="usedFashion">Used</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sellingPrice">Price</label></td> 
+                            <td>RM&ensp;<input id="sellingPrice" type="number" min="0">&ensp; -&ensp; 
+                                RM&ensp;<input id="sellingPrice" type="number" min="0"></td> 
+                        </tr>
+                    </tbody>
+                    <tbody id="furniture" style="display: none;">
+                        </tr>
+                            <td style="width: 130px;"><label for="productCondition">Product condition</label></td> 
+                            <td><input name="productCondition" type="radio" id="newFurniture"><label for="newFurniture">New</label>
+                                <input name="productCondition" type="radio" id="usedFurniture"><label for="usedFurniture">Used</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sellingPrice">Price</label></td> 
+                            <td>RM&ensp;<input id="sellingPrice" type="number" min="0">&ensp; -&ensp; 
+                                RM&ensp;<input id="sellingPrice" type="number" min="0"></td> 
+                        </tr>
+                    </tbody>
+                    <tbody id="electronic" style="display: none;">
+                        </tr>
+                            <td style="width: 130px;"><label for="productCondition">Product condition</label></td> 
+                            <td><input name="productCondition" type="radio" id="newElectronic"><label for="newElectronic">New</label>
+                                <input name="productCondition" type="radio" id="usedElectronic"><label for="usedElectronic">Used</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sellingPrice">Price</label></td> 
+                            <td>RM&ensp;<input id="sellingPrice" type="number" min="0">&ensp; -&ensp; 
+                                RM&ensp;<input id="sellingPrice" type="number" min="0"></td> 
+                        </tr>
+                    </tbody>
+                    <tbody id="food" style="display: none;">
+                    </tbody>
+                </table>
+                
+                <div style="width: 100%; text-align: center;">
+                    <input id="summitBtn" type="submit" value="Submit" onclick="closePopup()"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script >
+        function validateForm(){
+            let title = document.forms["newPost"]["title"].value;
+            let url = document.forms["newPost"]["url"].value;
+            let cat = document.forms["newPost"]["cat"].value;
+            
+            let i = [title, url, cat];
+            let j = ["Title", "Url", "Category"];
+            let k = 0;
+            for (l = 0; k < i.length; k++){
+                if (i[k] == ""){
+                    alert(`${j[k]} must be filled`);
+                    return false;
+                }
+            }
+        }
+
+        function openPopup(){
+            let popup = document.getElementById("popup");
+            popup.classList.add("open-popup");
+        }
+        
+        function closePopup(){
+            let popup = document.getElementById("popup");
+            popup.classList.remove("open-popup");
+        }
+
+        function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
+        }
+        
+        function displayCatItem(){
+            let cat = document.getElementById("cat").value;
+            let catList = ["event","job","food","property","vehicle","furniture","fashion","electronic"];
+            
+            for (let i = 0; i < catList.length; i++){
+                document.getElementById(catList[i]).style.display="none";
+
+                if(cat == catList[i]){
+                    document.getElementById(catList[i]).style.display="block";
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', selectRoom());
+        function selectRoom() {
+            const counter= {input: document.querySelector('.displayBox')};
+            const decrement = document.querySelector('.decrement');
+            const increment = document.querySelector('.increment');
+            let _this = this;
+            this.counter = 0;
+
+            decrement.addEventListener('click', function() {
+                counter.input.value = _this.counter;
+                counter = (_this.counter > 0) ? --_this.counter : counter;
+            });
+            
+            increment.addEventListener('click', function() {
+                counter.input.value = _this.counter;
+                counter = (_this.counter < 10) ? ++_this.counter : counter;
+            });
+        };
+
+        let manufacturedYear = document.getElementById("manufacturedYear");
+        let currentYear = new Date().getFullYear();
+        for (let i = 1950; i <= currentYear; i++) {
+            let newOption = document.createElement("option");
+            newOption.value = i;
+            newOption.label = i;
+            if (i == currentYear) {
+                newOption.selected = true;
+            }
+            manufacturedYear.appendChild(newOption);
+        }
+    </script>
+    
+    <style>
+    html,
+    h3 {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    #postBtn {
+        width: 50px;
+        height: 50px!important;
+        border-radius: 100%;
+        background-color: #2ea363;
+        position: fixed;
+        z-index: 10;
+        bottom: 5%;
+        right: 3%;
+        cursor: pointer;
+    }
+
+    #postBtn:active {
+        background-color: #248550;
+    }
+
+    #line1 {
+        margin-left: 10px;
+        top: 21px;
+        position: absolute;
+        height: 8px;
+        width: 30px;    
+        background-color: #fff;
+    }
+
+    #line2 {
+        margin-top: 10px;
+        left: 21px;
+        position: absolute;
+        height: 30px;
+        width: 8px;    
+        background-color: #fff;
+    }
+
+    .popup {
+        bottom: 50px;
+        right: 00px;
+        max-width: 550px;
+        position: fixed;
+        border-radius: 18px;
+        border: solid 1px #2ea363;
+        transform: translate(50%, 50%) scale(0);
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        margin: 40px;
+        line-height: 2.5;
+        font-size: large;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .open-popup {
+        visibility: visible;
+        transform: translate(0%, 0%) scale(1);
+    }
+    
+    #postHeading {
+        height: max-content;
+        padding: 3px;
+        text-align: center;
+        width: 100%;
+        background-color: #2ea363;
+        color: white;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .popup input[type=date],
+    .popup input[type=url],
+    .popup input[type=text],
+    .popup input[type=number],
+    .popup select,
+    .popup textarea {
+        width: 100%;
+        outline: solid 1px rgba(164, 163, 163, 0.695);
+        border: none;
+        border-radius: 5px;
+        min-height: 25px;
+        resize: none;
+        overflow: hidden;
+    }
+    
+    .popup input[type=date]:focus,
+    .popup input[type=url]:focus,
+    .popup input[type=text]:focus,
+    .popup input[type=number]:focus,
+    .popup select:focus,
+    .popup textarea:focus {
+        outline: solid 2px rgb(102, 218, 150);
+    }
+
+    td input {
+        text-align: right;
+        max-width: 80px;
+    }
+
+    input[type=radio] {
+        visibility: hidden;
+        display: contents;
+    }
+
+    input[type=radio]+label {
+        text-align: center;
+        display: inline-block;
+        margin-bottom: 20px;
+        margin-right: 30px;
+        width: 100px;
+        outline: solid 1px rgba(164, 163, 163, 0.695);
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    input[type=radio]:checked+label {
+        background-color: rgba(102, 218, 150, 0.199);
+        outline: solid 3px #2ea363a6;
+    }
+
+    #summitBtn {
+        width: 100%;
+        height: 35px;
+        margin-top: 50px;
+        border-radius: 30px;
+        background-color: #2ea363;
+        cursor: pointer;
+        border: none;
+        color: white;
+        font-size: large;
+    }
+
+    input[type=file] {
+        width: 150px;
+        cursor: pointer;
+    }
+
+    input[type=file]::file-selector-button {
+        height: 40px;
+        width: 40px;
+        border: none;
+        background: url(https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Photos.png);
+        background-repeat: no-repeat;
+        background-size: cover;      
+        border-radius: 15px;
+        color: #ffffff00;
+    }
+    </style>
+</html>
